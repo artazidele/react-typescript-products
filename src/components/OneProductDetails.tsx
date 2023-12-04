@@ -1,10 +1,11 @@
 function OneProductDetails({product}) {
     return (
         <div>
-            <h4>{product.name}</h4>
+            <h4 className="text-xl mb-8 mt-16 uppercase font-semibold">{product.name}</h4>
             <h6>Price: { product.price } { product.currency }</h6>
             <h6>Category: { product.category }</h6>
-            <p>Description: {product.description}</p>
+            <h6 className="mt-8">Description:</h6>
+            <p className="mb-16">{product.description}</p>
         </div>
     )
 }

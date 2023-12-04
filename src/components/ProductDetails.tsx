@@ -11,13 +11,15 @@ export function ProductDetails() {
     return (
         <div>
             <Header title="Product details"/>
-            <div className="min-w-[320px] absolute mt-48 sm:mt-52 w-full">
-                <div className="">
-                    <Link to="..">All Products</Link>
+            <div className="min-h-[75vh] flex flex-col min-w-[320px] absolute mt-48 sm:mt-52 w-full">
+                <div className="mx-2 sm:mx-32">
+                    <div className="capitalize underline text-sm my-4">
+                        <Link to="..">To all products</Link>
+                    </div>
+                    {loading && <div>Loading...</div>}
+                    {error && <div>{error}</div>}
+                    {products && <OneProductDetails product={products.find((product) => product.id == id)}/>}
                 </div>
-                {loading && <div>Loading...</div>}
-                {error && <div>{error}</div>}
-                {products && <OneProductDetails product={products.find((product) => product.id == id)}/>}
                 <Footer />
             </div>
         </div>

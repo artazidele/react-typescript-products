@@ -9,7 +9,7 @@ export function ProductList() {
     return (
         <div>
             <Header title="Product list"/>
-            <div className="min-w-[320px] absolute mt-48 sm:mt-52 w-full">
+            <div className="min-h-[75vh] flex flex-col min-w-[320px] absolute mt-48 sm:mt-52 w-full">
                 <div className="mx-2 sm:mx-32">
                     <div className="">
                         {loading && <div>Loading...</div>}
