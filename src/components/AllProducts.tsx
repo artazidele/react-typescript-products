@@ -14,8 +14,14 @@ function AllProducts({products}) {
         startCounts.push(i+1)
     }
     const [counts, setCounts] = useState(startCounts)
+    document.getElementById(currentPage)?.classList.add("bg-teal-900")
+    document.getElementById(currentPage)?.classList.add("text-white")
 
     const buttonClciked = (e) => {
+        document.getElementById(currentPage)?.classList.remove("bg-teal-900")
+        document.getElementById(currentPage)?.classList.remove("text-white")
+        document.getElementById(e.target.value)?.classList.add("bg-teal-900")
+        document.getElementById(e.target.value)?.classList.add("text-white")
         setCurrentPage(e.target.value)
         setCurrentPageProducts(filteredProducts.slice((e.target.value-1)*5, e.target.value*5))
     }
@@ -31,6 +37,10 @@ function AllProducts({products}) {
         setCounts(newCounts)
         setFilteredProducts(newProducts)
         if (newProducts.length < currentPage*5-4) {
+            document.getElementById(currentPage)?.classList.remove("bg-teal-900")
+            document.getElementById(currentPage)?.classList.remove("text-white")
+            document.getElementById(newCount)?.classList.add("bg-teal-900")
+            document.getElementById(newCount)?.classList.add("text-white")
             setCurrentPage(newCount)
             setCurrentPageProducts(newProducts.slice((newCount-1)*5, newCount*5))
         } else {
@@ -48,7 +58,7 @@ function AllProducts({products}) {
             <div className="mt-4 text-center text-teal-900 text-4xl">* * *</div>
             <ProductPage products={currentPageProducts}/>
             <div className="mb-4 text-center">{counts.map((oneCount) => (
-                <button className="m-2 border-teal-900 border-2 rounded inline block py-2 px-4" value={oneCount} key={oneCount} onClick={buttonClciked}>{ oneCount }</button>
+                <button id={oneCount} className="m-2 border-teal-900 border-2 rounded inline block py-2 px-4" value={oneCount} key={oneCount} onClick={buttonClciked}>{ oneCount }</button>
             ))}</div>
         </div>
     )

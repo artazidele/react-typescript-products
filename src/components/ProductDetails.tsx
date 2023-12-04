@@ -12,8 +12,8 @@ export function ProductDetails() {
         <div>
             <Header title="Product details"/>
             <div className="min-w-[320px] absolute mt-48 sm:mt-52 w-full">
-                <div>
-                    <Link to="..">Home</Link>
+                <div className="">
+                    <Link to="..">All Products</Link>
                 </div>
                 {loading && <div>Loading...</div>}
                 {error && <div>{error}</div>}
