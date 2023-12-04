@@ -1,16 +1,23 @@
 import AllProducts from "./AllProducts"
 import GetProducts from '../data/GetProducts';
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export function ProductList() {
     const {products, loading, error} = GetProducts();
 
     return (
         <div>
-            <h1>Product list</h1>
-            <div>
-                {loading && <div>Loading...</div>}
-                {error && <div>{error}</div>}
-                {products && <AllProducts products={products} />}
+            <Header title="Product list"/>
+            <div className="min-w-[320px] absolute mt-48 sm:mt-52 w-full">
+                <div className="mx-2 sm:mx-32">
+                    <div className="">
+                        {loading && <div>Loading...</div>}
+                        {error && <div>{error}</div>}
+                        {products && <AllProducts products={products} />}
+                    </div>
+                </div>
+                <Footer />
             </div>
         </div>
     )

@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import './App.css'
 import { ProductList } from './components/ProductList'
 import { ProductDetails } from './components/ProductDetails'
+
+// https://tailwind.build/classes
 
 function App() {
   return (
